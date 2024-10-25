@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparador de Salud</title>
     <link rel="stylesheet" href="index.css">
-    <script>
-    // Obtener el parámetro de búsqueda de la URL
-    var urlParams = new URLSearchParams(window.location.search);
-    var searchQuery = urlParams.get('search');
-
-    if (searchQuery) {
-        // Hacer algo con la búsqueda, como mostrar resultados basados en la query
-        document.write("<h1>Resultados para: " + searchQuery + "</h1>");
-        // Aquí puedes añadir lógica para mostrar productos relacionados con la búsqueda
-    } else {
-        document.write("<h1>No se ha realizado ninguna búsqueda</h1>");
-    }
+<script>
+    // Seleccionar el formulario y añadir un listener para el evento 'submit'
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenir que el formulario se envíe de forma tradicional
+        
+        // Obtener el valor del campo de búsqueda
+        var searchQuery = document.getElementById('searchInput').value;
+        
+        // Redirigir a 'productos.html' con el query de búsqueda como parámetro en la URL
+        window.location.href = 'productos.html?search=' + encodeURIComponent(searchQuery);
+    });
 </script>
+
 
 </head>
 <body>
